@@ -175,6 +175,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="демо задание 4\erd_Suhanova.pdf" />
+    <None Include="демо задание 4\импорт.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -214,6 +216,27 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="демо задание 4\erd_Suhanova.png" />
+    <Content Include="демо задание 4\Learn.sql" />
+    <Resource Include="демо задание 4\school_logo.ico" />
+    <Resource Include="демо задание 4\school_logo.png" />
+    <Resource Include="демо задание 4\Услуги школы\for company.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\online lessons.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\Английский язык.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\Испанский язык.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\Итальянский язык.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\киноклуб.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\Китайский язык.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\Немецкий язык.png" />
+    <Resource Include="демо задание 4\Услуги школы\Подготовка к экзамену ACT.png" />
+    <Resource Include="демо задание 4\Услуги школы\Подготовка к экзамену GMAT.png" />
+    <Resource Include="демо задание 4\Услуги школы\Подготовка к экзамену GRE.jpeg" />
+    <Resource Include="демо задание 4\Услуги школы\Подготовка к экзамену IELTS.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\Подготовка к экзамену SAT.png" />
+    <Resource Include="демо задание 4\Услуги школы\Подготовка к экзамену TOEFL.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\Португальский язык.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\Французский язык.jpg" />
+    <Resource Include="демо задание 4\Услуги школы\Японский язык.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
