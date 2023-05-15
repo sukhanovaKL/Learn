@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="32d8d57299ca4c6283c4c4eb410d9c9c" Name="Diagram1">
+        <EntityTypeShape EntityType="LearnModel.Customers" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.CustomerVisits" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.EmployeeCategories" Width="1.5" PointX="2.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.Employees" Width="1.5" PointX="5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.Genders" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.HistiryBuy" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.Manufacturers" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.OtherPhotos" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.Products" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.ProductsCategories" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.ProductsHisoryBuy" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.Services" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LearnModel.Tegs" Width="1.5" PointX="0.75" PointY="21" IsExpanded="true" />
+        <AssociationConnector Association="LearnModel.FK__Customers__DateB__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__Customers__TegId__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__CustomerV__Other__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__HistiryBu__Servi__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__CustomerV__Other__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__CustomerV__Servi__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__Employees__Emplo__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__HistiryBu__Servi__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__ProductsH__Histo__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__Products__Manufa__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__Products__OtherP__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__Services__OtherP__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__Products__IsActu__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="LearnModel.FK__ProductsH__Count__59FA5E80" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

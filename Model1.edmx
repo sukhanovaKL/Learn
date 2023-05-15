@@ -1,0 +1,981 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище LearnModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Patronymic" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="DateRegistration" Type="datetime" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="TegId" Type="int" />
+          <Property Name="DateBirthDay" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CustomerVisits">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="DateVisit" Type="datetime" />
+          <Property Name="ServiceId" Type="int" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="OtherPhotoId" Type="int" />
+        </EntityType>
+        <EntityType Name="EmployeeCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Patronymic" Type="nvarchar(max)" />
+          <Property Name="PassportNumber" Type="nvarchar(max)" />
+          <Property Name="PassportSeria" Type="nvarchar(max)" />
+          <Property Name="KodPodrazdelenia" Type="int" />
+          <Property Name="Coefficient" Type="float" />
+          <Property Name="DateBirthDay" Type="datetime" />
+          <Property Name="EmployeeCategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HistiryBuy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DateBuy" Type="int" />
+          <Property Name="TotalCost" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="ServiceId" Type="int" />
+        </EntityType>
+        <EntityType Name="Manufacturers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="DateStartWork" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OtherPhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="IdServise" Type="int" />
+          <Property Name="ProductsId" Type="int" />
+          <Property Name="ServicesId" Type="int" />
+          <Property Name="CustomerVisits" Type="int" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ProductCategoryId" Type="int" />
+          <Property Name="Cost" Type="int" />
+          <Property Name="Haracteristics" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Wight" Type="int" />
+          <Property Name="Height" Type="int" />
+          <Property Name="ManufacturerId" Type="int" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="OtherPhotoId" Type="int" />
+          <Property Name="IsActual" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProductsCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProductsHisoryBuy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="HistoryBuyId" Type="int" />
+          <Property Name="CountProduct" Type="int" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Cost" Type="int" />
+          <Property Name="Sale" Type="int" />
+          <Property Name="Minutes" Type="int" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="OtherPhotoId" Type="int" />
+        </EntityType>
+        <EntityType Name="Tegs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Color" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK__Customers__DateB__3D5E1FD2">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customers__TegId__3E52440B">
+          <End Role="Tegs" Type="Self.Tegs" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tegs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="TegId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerV__Other__440B1D61">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="CustomerVisits" Type="Self.CustomerVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerVisits">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerV__Other__45F365D3">
+          <End Role="OtherPhotos" Type="Self.OtherPhotos" Multiplicity="0..1" />
+          <End Role="CustomerVisits" Type="Self.CustomerVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OtherPhotos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerVisits">
+              <PropertyRef Name="OtherPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerV__Servi__44FF419A">
+          <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+          <End Role="CustomerVisits" Type="Self.CustomerVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerVisits">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Emplo__4AB81AF0">
+          <End Role="EmployeeCategories" Type="Self.EmployeeCategories" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="EmployeeCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistiryBu__Servi__5629CD9C">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="HistiryBuy" Type="Self.HistiryBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistiryBuy">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistiryBu__Servi__571DF1D5">
+          <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+          <End Role="HistiryBuy" Type="Self.HistiryBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistiryBuy">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__IsActu__5165187F">
+          <End Role="ProductsCategories" Type="Self.ProductsCategories" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Manufa__52593CB8">
+          <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__OtherP__534D60F1">
+          <End Role="OtherPhotos" Type="Self.OtherPhotos" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OtherPhotos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="OtherPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductsH__Count__59FA5E80">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductsHisoryBuy" Type="Self.ProductsHisoryBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductsHisoryBuy">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductsH__Histo__5AEE82B9">
+          <End Role="HistiryBuy" Type="Self.HistiryBuy" Multiplicity="0..1" />
+          <End Role="ProductsHisoryBuy" Type="Self.ProductsHisoryBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HistiryBuy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductsHisoryBuy">
+              <PropertyRef Name="HistoryBuyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Services__OtherP__412EB0B6">
+          <End Role="OtherPhotos" Type="Self.OtherPhotos" Multiplicity="0..1" />
+          <End Role="Services" Type="Self.Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OtherPhotos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="OtherPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище LearnModelContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerVisits" EntityType="Self.CustomerVisits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeCategories" EntityType="Self.EmployeeCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistiryBuy" EntityType="Self.HistiryBuy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OtherPhotos" EntityType="Self.OtherPhotos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductsCategories" EntityType="Self.ProductsCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductsHisoryBuy" EntityType="Self.ProductsHisoryBuy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tegs" EntityType="Self.Tegs" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Customers__DateB__3D5E1FD2" Association="Self.FK__Customers__DateB__3D5E1FD2">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customers__TegId__3E52440B" Association="Self.FK__Customers__TegId__3E52440B">
+            <End Role="Tegs" EntitySet="Tegs" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerV__Other__440B1D61" Association="Self.FK__CustomerV__Other__440B1D61">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerVisits" EntitySet="CustomerVisits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerV__Other__45F365D3" Association="Self.FK__CustomerV__Other__45F365D3">
+            <End Role="OtherPhotos" EntitySet="OtherPhotos" />
+            <End Role="CustomerVisits" EntitySet="CustomerVisits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerV__Servi__44FF419A" Association="Self.FK__CustomerV__Servi__44FF419A">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="CustomerVisits" EntitySet="CustomerVisits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Emplo__4AB81AF0" Association="Self.FK__Employees__Emplo__4AB81AF0">
+            <End Role="EmployeeCategories" EntitySet="EmployeeCategories" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistiryBu__Servi__5629CD9C" Association="Self.FK__HistiryBu__Servi__5629CD9C">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="HistiryBuy" EntitySet="HistiryBuy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistiryBu__Servi__571DF1D5" Association="Self.FK__HistiryBu__Servi__571DF1D5">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="HistiryBuy" EntitySet="HistiryBuy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__IsActu__5165187F" Association="Self.FK__Products__IsActu__5165187F">
+            <End Role="ProductsCategories" EntitySet="ProductsCategories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Manufa__52593CB8" Association="Self.FK__Products__Manufa__52593CB8">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__OtherP__534D60F1" Association="Self.FK__Products__OtherP__534D60F1">
+            <End Role="OtherPhotos" EntitySet="OtherPhotos" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductsH__Count__59FA5E80" Association="Self.FK__ProductsH__Count__59FA5E80">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductsHisoryBuy" EntitySet="ProductsHisoryBuy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductsH__Histo__5AEE82B9" Association="Self.FK__ProductsH__Histo__5AEE82B9">
+            <End Role="HistiryBuy" EntitySet="HistiryBuy" />
+            <End Role="ProductsHisoryBuy" EntitySet="ProductsHisoryBuy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Services__OtherP__412EB0B6" Association="Self.FK__Services__OtherP__412EB0B6">
+            <End Role="OtherPhotos" EntitySet="OtherPhotos" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LearnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="DateRegistration" Type="DateTime" Precision="3" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TegId" Type="Int32" />
+          <Property Name="DateBirthDay" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Genders" Relationship="Self.FK__Customers__DateB__3D5E1FD2" FromRole="Customers" ToRole="Genders" />
+          <NavigationProperty Name="Tegs" Relationship="Self.FK__Customers__TegId__3E52440B" FromRole="Customers" ToRole="Tegs" />
+          <NavigationProperty Name="CustomerVisits" Relationship="Self.FK__CustomerV__Other__440B1D61" FromRole="Customers" ToRole="CustomerVisits" />
+          <NavigationProperty Name="HistiryBuy" Relationship="Self.FK__HistiryBu__Servi__5629CD9C" FromRole="Customers" ToRole="HistiryBuy" />
+        </EntityType>
+        <EntityType Name="CustomerVisits">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="DateVisit" Type="DateTime" Precision="3" />
+          <Property Name="ServiceId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherPhotoId" Type="Int32" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__CustomerV__Other__440B1D61" FromRole="CustomerVisits" ToRole="Customers" />
+          <NavigationProperty Name="OtherPhotos" Relationship="Self.FK__CustomerV__Other__45F365D3" FromRole="CustomerVisits" ToRole="OtherPhotos" />
+          <NavigationProperty Name="Services" Relationship="Self.FK__CustomerV__Servi__44FF419A" FromRole="CustomerVisits" ToRole="Services" />
+        </EntityType>
+        <EntityType Name="EmployeeCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Emplo__4AB81AF0" FromRole="EmployeeCategories" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PassportNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PassportSeria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KodPodrazdelenia" Type="Int32" />
+          <Property Name="Coefficient" Type="Double" />
+          <Property Name="DateBirthDay" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeCategoryId" Type="Int32" />
+          <NavigationProperty Name="EmployeeCategories" Relationship="Self.FK__Employees__Emplo__4AB81AF0" FromRole="Employees" ToRole="EmployeeCategories" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Customers__DateB__3D5E1FD2" FromRole="Genders" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="HistiryBuy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DateBuy" Type="Int32" />
+          <Property Name="TotalCost" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="ServiceId" Type="Int32" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__HistiryBu__Servi__5629CD9C" FromRole="HistiryBuy" ToRole="Customers" />
+          <NavigationProperty Name="Services" Relationship="Self.FK__HistiryBu__Servi__571DF1D5" FromRole="HistiryBuy" ToRole="Services" />
+          <NavigationProperty Name="ProductsHisoryBuy" Relationship="Self.FK__ProductsH__Histo__5AEE82B9" FromRole="HistiryBuy" ToRole="ProductsHisoryBuy" />
+        </EntityType>
+        <EntityType Name="Manufacturers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateStartWork" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Products__Manufa__52593CB8" FromRole="Manufacturers" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="OtherPhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdServise" Type="Int32" />
+          <Property Name="ProductsId" Type="Int32" />
+          <Property Name="ServicesId" Type="Int32" />
+          <Property Name="CustomerVisits" Type="Int32" />
+          <NavigationProperty Name="CustomerVisits1" Relationship="Self.FK__CustomerV__Other__45F365D3" FromRole="OtherPhotos" ToRole="CustomerVisits" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Products__OtherP__534D60F1" FromRole="OtherPhotos" ToRole="Products" />
+          <NavigationProperty Name="Services" Relationship="Self.FK__Services__OtherP__412EB0B6" FromRole="OtherPhotos" ToRole="Services" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductCategoryId" Type="Int32" />
+          <Property Name="Cost" Type="Int32" />
+          <Property Name="Haracteristics" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Wight" Type="Int32" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="ManufacturerId" Type="Int32" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherPhotoId" Type="Int32" />
+          <Property Name="IsActual" Type="Boolean" />
+          <NavigationProperty Name="Manufacturers" Relationship="Self.FK__Products__Manufa__52593CB8" FromRole="Products" ToRole="Manufacturers" />
+          <NavigationProperty Name="OtherPhotos" Relationship="Self.FK__Products__OtherP__534D60F1" FromRole="Products" ToRole="OtherPhotos" />
+          <NavigationProperty Name="ProductsCategories" Relationship="Self.FK__Products__IsActu__5165187F" FromRole="Products" ToRole="ProductsCategories" />
+          <NavigationProperty Name="ProductsHisoryBuy" Relationship="Self.FK__ProductsH__Count__59FA5E80" FromRole="Products" ToRole="ProductsHisoryBuy" />
+        </EntityType>
+        <EntityType Name="ProductsCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Products__IsActu__5165187F" FromRole="ProductsCategories" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="ProductsHisoryBuy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="HistoryBuyId" Type="Int32" />
+          <Property Name="CountProduct" Type="Int32" />
+          <NavigationProperty Name="HistiryBuy" Relationship="Self.FK__ProductsH__Histo__5AEE82B9" FromRole="ProductsHisoryBuy" ToRole="HistiryBuy" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__ProductsH__Count__59FA5E80" FromRole="ProductsHisoryBuy" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Int32" />
+          <Property Name="Sale" Type="Int32" />
+          <Property Name="Minutes" Type="Int32" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherPhotoId" Type="Int32" />
+          <NavigationProperty Name="CustomerVisits" Relationship="Self.FK__CustomerV__Servi__44FF419A" FromRole="Services" ToRole="CustomerVisits" />
+          <NavigationProperty Name="HistiryBuy" Relationship="Self.FK__HistiryBu__Servi__571DF1D5" FromRole="Services" ToRole="HistiryBuy" />
+          <NavigationProperty Name="OtherPhotos" Relationship="Self.FK__Services__OtherP__412EB0B6" FromRole="Services" ToRole="OtherPhotos" />
+        </EntityType>
+        <EntityType Name="Tegs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Customers__TegId__3E52440B" FromRole="Tegs" ToRole="Customers" />
+        </EntityType>
+        <Association Name="FK__Customers__DateB__3D5E1FD2">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customers__TegId__3E52440B">
+          <End Role="Tegs" Type="Self.Tegs" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tegs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="TegId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerV__Other__440B1D61">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="CustomerVisits" Type="Self.CustomerVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerVisits">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistiryBu__Servi__5629CD9C">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="HistiryBuy" Type="Self.HistiryBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistiryBuy">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerV__Other__45F365D3">
+          <End Role="OtherPhotos" Type="Self.OtherPhotos" Multiplicity="0..1" />
+          <End Role="CustomerVisits" Type="Self.CustomerVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OtherPhotos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerVisits">
+              <PropertyRef Name="OtherPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerV__Servi__44FF419A">
+          <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+          <End Role="CustomerVisits" Type="Self.CustomerVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerVisits">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Emplo__4AB81AF0">
+          <End Role="EmployeeCategories" Type="Self.EmployeeCategories" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="EmployeeCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistiryBu__Servi__571DF1D5">
+          <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+          <End Role="HistiryBuy" Type="Self.HistiryBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistiryBuy">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductsH__Histo__5AEE82B9">
+          <End Role="HistiryBuy" Type="Self.HistiryBuy" Multiplicity="0..1" />
+          <End Role="ProductsHisoryBuy" Type="Self.ProductsHisoryBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HistiryBuy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductsHisoryBuy">
+              <PropertyRef Name="HistoryBuyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Manufa__52593CB8">
+          <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__OtherP__534D60F1">
+          <End Role="OtherPhotos" Type="Self.OtherPhotos" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OtherPhotos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="OtherPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Services__OtherP__412EB0B6">
+          <End Role="OtherPhotos" Type="Self.OtherPhotos" Multiplicity="0..1" />
+          <End Role="Services" Type="Self.Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OtherPhotos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="OtherPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__IsActu__5165187F">
+          <End Role="ProductsCategories" Type="Self.ProductsCategories" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductsH__Count__59FA5E80">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductsHisoryBuy" Type="Self.ProductsHisoryBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductsHisoryBuy">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LearnEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="CustomerVisits" EntityType="Self.CustomerVisits" />
+          <EntitySet Name="EmployeeCategories" EntityType="Self.EmployeeCategories" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" />
+          <EntitySet Name="HistiryBuy" EntityType="Self.HistiryBuy" />
+          <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" />
+          <EntitySet Name="OtherPhotos" EntityType="Self.OtherPhotos" />
+          <EntitySet Name="Products" EntityType="Self.Products" />
+          <EntitySet Name="ProductsCategories" EntityType="Self.ProductsCategories" />
+          <EntitySet Name="ProductsHisoryBuy" EntityType="Self.ProductsHisoryBuy" />
+          <EntitySet Name="Services" EntityType="Self.Services" />
+          <EntitySet Name="Tegs" EntityType="Self.Tegs" />
+          <AssociationSet Name="FK__Customers__DateB__3D5E1FD2" Association="Self.FK__Customers__DateB__3D5E1FD2">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customers__TegId__3E52440B" Association="Self.FK__Customers__TegId__3E52440B">
+            <End Role="Tegs" EntitySet="Tegs" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerV__Other__440B1D61" Association="Self.FK__CustomerV__Other__440B1D61">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerVisits" EntitySet="CustomerVisits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistiryBu__Servi__5629CD9C" Association="Self.FK__HistiryBu__Servi__5629CD9C">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="HistiryBuy" EntitySet="HistiryBuy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerV__Other__45F365D3" Association="Self.FK__CustomerV__Other__45F365D3">
+            <End Role="OtherPhotos" EntitySet="OtherPhotos" />
+            <End Role="CustomerVisits" EntitySet="CustomerVisits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerV__Servi__44FF419A" Association="Self.FK__CustomerV__Servi__44FF419A">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="CustomerVisits" EntitySet="CustomerVisits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Emplo__4AB81AF0" Association="Self.FK__Employees__Emplo__4AB81AF0">
+            <End Role="EmployeeCategories" EntitySet="EmployeeCategories" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistiryBu__Servi__571DF1D5" Association="Self.FK__HistiryBu__Servi__571DF1D5">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="HistiryBuy" EntitySet="HistiryBuy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductsH__Histo__5AEE82B9" Association="Self.FK__ProductsH__Histo__5AEE82B9">
+            <End Role="HistiryBuy" EntitySet="HistiryBuy" />
+            <End Role="ProductsHisoryBuy" EntitySet="ProductsHisoryBuy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Manufa__52593CB8" Association="Self.FK__Products__Manufa__52593CB8">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__OtherP__534D60F1" Association="Self.FK__Products__OtherP__534D60F1">
+            <End Role="OtherPhotos" EntitySet="OtherPhotos" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Services__OtherP__412EB0B6" Association="Self.FK__Services__OtherP__412EB0B6">
+            <End Role="OtherPhotos" EntitySet="OtherPhotos" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__IsActu__5165187F" Association="Self.FK__Products__IsActu__5165187F">
+            <End Role="ProductsCategories" EntitySet="ProductsCategories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductsH__Count__59FA5E80" Association="Self.FK__ProductsH__Count__59FA5E80">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductsHisoryBuy" EntitySet="ProductsHisoryBuy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LearnModelContainer" CdmEntityContainer="LearnEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="LearnModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="DateRegistration" ColumnName="DateRegistration" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="TegId" ColumnName="TegId" />
+                <ScalarProperty Name="DateBirthDay" ColumnName="DateBirthDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerVisits">
+            <EntityTypeMapping TypeName="LearnModel.CustomerVisits">
+              <MappingFragment StoreEntitySet="CustomerVisits">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DateVisit" ColumnName="DateVisit" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="OtherPhotoId" ColumnName="OtherPhotoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeCategories">
+            <EntityTypeMapping TypeName="LearnModel.EmployeeCategories">
+              <MappingFragment StoreEntitySet="EmployeeCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="LearnModel.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+                <ScalarProperty Name="PassportSeria" ColumnName="PassportSeria" />
+                <ScalarProperty Name="KodPodrazdelenia" ColumnName="KodPodrazdelenia" />
+                <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
+                <ScalarProperty Name="DateBirthDay" ColumnName="DateBirthDay" />
+                <ScalarProperty Name="EmployeeCategoryId" ColumnName="EmployeeCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="LearnModel.Genders">
+              <MappingFragment StoreEntitySet="Genders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistiryBuy">
+            <EntityTypeMapping TypeName="LearnModel.HistiryBuy">
+              <MappingFragment StoreEntitySet="HistiryBuy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateBuy" ColumnName="DateBuy" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="LearnModel.Manufacturers">
+              <MappingFragment StoreEntitySet="Manufacturers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateStartWork" ColumnName="DateStartWork" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OtherPhotos">
+            <EntityTypeMapping TypeName="LearnModel.OtherPhotos">
+              <MappingFragment StoreEntitySet="OtherPhotos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IdServise" ColumnName="IdServise" />
+                <ScalarProperty Name="ProductsId" ColumnName="ProductsId" />
+                <ScalarProperty Name="ServicesId" ColumnName="ServicesId" />
+                <ScalarProperty Name="CustomerVisits" ColumnName="CustomerVisits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="LearnModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Haracteristics" ColumnName="Haracteristics" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Wight" ColumnName="Wight" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="OtherPhotoId" ColumnName="OtherPhotoId" />
+                <ScalarProperty Name="IsActual" ColumnName="IsActual" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductsCategories">
+            <EntityTypeMapping TypeName="LearnModel.ProductsCategories">
+              <MappingFragment StoreEntitySet="ProductsCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductsHisoryBuy">
+            <EntityTypeMapping TypeName="LearnModel.ProductsHisoryBuy">
+              <MappingFragment StoreEntitySet="ProductsHisoryBuy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="HistoryBuyId" ColumnName="HistoryBuyId" />
+                <ScalarProperty Name="CountProduct" ColumnName="CountProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="LearnModel.Services">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Sale" ColumnName="Sale" />
+                <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="OtherPhotoId" ColumnName="OtherPhotoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tegs">
+            <EntityTypeMapping TypeName="LearnModel.Tegs">
+              <MappingFragment StoreEntitySet="Tegs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
