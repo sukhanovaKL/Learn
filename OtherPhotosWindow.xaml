@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Learn"
         mc:Ignorable="d"
-        Title="OtherPhotosWindow" Height="300" Width="600">
+        Title="OtherPhotosWindow" Height="400" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
@@ -27,7 +27,7 @@
                 <DataTemplate>
                     <Border BorderThickness="1" BorderBrush="Black">
                         <Grid  Width="750" Height="150">
-                            <Image Height="200" Width="200" Source="{Binding PhotoFromResources}" Grid.RowSpan="4"/>
+                            <Image Height="200" Width="200" Source="{Binding OtherPhotoFromResources}" Grid.RowSpan="4"/>
                         </Grid>
                     </Border>
                 </DataTemplate>

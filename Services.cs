@@ -42,9 +42,9 @@ namespace Learn
         public BitmapImage PhotoFromResources => !string.IsNullOrEmpty(Photo) ? new BitmapImage(new Uri("C:/Users/79393/source/repos/Learn/Photos/" + Photo)) : new BitmapImage(new Uri("C:/Users/79393/source/repos/Learn/Photos/school_logo.png"));
 
         [NotMapped]
-        public string CostInfo => (Cost - (Cost * Sale / 100))  + " рублей за " + Minutes + "минут";
+        public string CostInfo => Sale.HasValue? (Cost - (Cost * Sale / 100))  + " рублей за " + Minutes + "минут" : Cost + " рублей за " + Minutes + "минут";
 
         [NotMapped]
-        public string SaleInfo => "* скидка" + Sale + "%";
+        public string SaleInfo => Sale.HasValue? "* скидка" + Sale + "%" : "";
     }
 }

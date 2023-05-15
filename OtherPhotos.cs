@@ -39,6 +39,6 @@ namespace Learn
         public virtual ICollection<Services> Services { get; set; }
 
         [NotMapped]
-        public BitmapImage PhotoFromResources => !string.IsNullOrEmpty(Photo) ? new BitmapImage(new Uri("C:/Users/79393/source/repos/Learn/Photos/" + Photo)) : new BitmapImage(new Uri("C:/Users/79393/source/repos/Learn/Photos/school_logo.png"));
+        public BitmapImage OtherPhotoFromResources => !string.IsNullOrEmpty(Photo) ? new BitmapImage(new Uri("C:/Users/79393/source/repos/Learn/Photos/" + Photo)) : new BitmapImage(new Uri("C:/Users/79393/source/repos/Learn/Photos/school_logo.png"));
     }
 }
