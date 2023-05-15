@@ -39,6 +39,8 @@ namespace Learn
             };
 
             CountItemsLabel.Content = db.Services.ToList().Count + " из " + db.Services.ToList().Count;
+
+            CreateButton.Visibility = Visibility.Hidden;
         }
 
         public void GetByFilter()
@@ -118,6 +120,18 @@ namespace Learn
         {
             Hide();
             new EditCreateWindow((sender as Button).DataContext as Services, true).Show();
+        }
+
+        private void AdminTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(AdminTextBox.Text == "0000")
+            {
+                CreateButton.Visibility = Visibility.Visible;
+            }
+            else if(CreateButton != null)
+            {
+                CreateButton.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

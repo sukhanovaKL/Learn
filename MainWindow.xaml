@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Услуги" Height="450" Width="800"
         Icon="Photos/school_logo.ico">
-    <Grid>
+    <Grid Background="#FFE7FABF">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
@@ -20,7 +20,8 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="CreateButton" Grid.Column="2" Content="Добавить услугу" Width="150" Height="25" Click="CreateButton_Click"></Button>
+        <TextBox x:Name="AdminTextBox" Height="25" Width="100" Text="Код" TextChanged="AdminTextBox_TextChanged"></TextBox>
+        <Button x:Name="CreateButton" Grid.Column="2" Content="Добавить услугу" Width="150" Height="25" Click="CreateButton_Click" Background="#FF04A0FF"></Button>
         
         <Label Content="Стоимость по" Grid.Row="1" HorizontalAlignment="Left" ></Label>
         <ComboBox x:Name="OrderByComboBox" Grid.Row="1" Width="150" Height="25" HorizontalAlignment="Right" SelectionChanged="OrderByComboBox_SelectionChanged"></ComboBox>
@@ -60,8 +61,8 @@
                             <Label Content="{Binding CostInfo}" Grid.Column="1" Grid.Row="1"></Label>
                             <Label Content="{Binding SaleInfo}" Grid.Column="1" Grid.Row="2"></Label>
 
-                            <Button x:Name="EditButton" Content="Редактировать" Grid.Column="1" Grid.Row="3" Width="150" Height="25" HorizontalAlignment="Left" Click="EditButton_Click"></Button>
-                            <Button x:Name="DeleteButton" Content="Удалить" Grid.Column="1" Grid.Row="3" Width="150" Height="25" HorizontalAlignment="Center" Click="DeleteButton_Click"></Button>
+                            <Button x:Name="EditButton" Content="Редактировать" Grid.Column="1" Grid.Row="3" Width="150" Height="25" HorizontalAlignment="Left" Click="EditButton_Click" Background="#FF04A0FF"></Button>
+                            <Button x:Name="DeleteButton" Content="Удалить" Grid.Column="1" Grid.Row="3" Width="150" Height="25" HorizontalAlignment="Center" Click="DeleteButton_Click" Background="#FF04A0FF"></Button>
                             
                         </Grid>
                     </Border>

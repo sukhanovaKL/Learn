@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Learn"
         mc:Ignorable="d"
-        Title="OtherPhotosWindow" Height="400" Width="600">
-    <Grid>
+        Title="OtherPhotosWindow" Height="400" Width="600"
+        Icon="Photos/school_logo.ico">
+    <Grid Background="#FFE7FABF">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button x:Name="AddPhotoButton" Width="150" Height="25" Content="Добавить фото" HorizontalAlignment="Right" Click="AddPhotoButton_Click"></Button>
+        <Button x:Name="AddPhotoButton" Width="150" Height="25" Content="Добавить фото" HorizontalAlignment="Right" Click="AddPhotoButton_Click" Background="#FF04A0FF"></Button>
 
-        <Button x:Name="ExitButton" Width="150" Height="25" Content="Назад" HorizontalAlignment="Right" Grid.Row="2" Click="ExitButton_Click"></Button>
+        <Button x:Name="ExitButton" Width="150" Height="25" Content="Назад" HorizontalAlignment="Right" Grid.Row="2" Click="ExitButton_Click" Background="#FF04A0FF"></Button>
 
         <ListView x:Name="PhotosList" Grid.Row="1">
             <ListView.ItemsPanel>

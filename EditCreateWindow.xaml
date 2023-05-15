@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Редактирование услуги" Height="450" Width="550"
         Icon="Photos/school_logo.ico">
-    <Grid x:Name="EditCreateItem">
+    <Grid x:Name="EditCreateItem" Background="#FFE7FABF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -22,8 +22,8 @@
         </Grid.RowDefinitions>
 
         <Image x:Name="Photo" Source="{Binding PhotoFromResources}" Grid.Row="1" Grid.RowSpan="2" Width="120" Height="120" VerticalAlignment="Top"></Image>
-        <Button x:Name="EditPhotoButton" Content="Изменить" Height="25" Width="170" Grid.Row="3" Click="EditPhotoButton_Click" VerticalAlignment="Top"></Button>
-        <Button x:Name="AddOtherPhotoButton" Content="Дополнительные фотографии" Height="25" Width="170" Grid.Row="3" Click="AddOtherPhotoButton_Click"  VerticalAlignment="Bottom"></Button>
+        <Button x:Name="EditPhotoButton" Content="Изменить" Height="25" Width="170" Grid.Row="3" Click="EditPhotoButton_Click" VerticalAlignment="Top" Background="#FF04A0FF"></Button>
+        <Button x:Name="AddOtherPhotoButton" Content="Дополнительные фотографии" Height="25" Width="170" Grid.Row="3" Click="AddOtherPhotoButton_Click"  VerticalAlignment="Bottom" Background="#FF04A0FF"></Button>
 
         <Label Content="название" Grid.Column="1" VerticalAlignment="Bottom"></Label>
         <TextBox x:Name="NameTextBox" Text="{Binding Name}" Grid.Column="1" Width="150" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"></TextBox>
@@ -42,8 +42,8 @@
 
         <Label x:Name="IdLabel" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Center"></Label>
 
-        <Button x:Name="ExitButton" Height="24" Width="150" Content="Назад" Grid.Row="5" Grid.Column="1" Click="ExitButton_Click"></Button>
-        <Button x:Name="SaveButton"  Height="24" Width="150" Content="Сохранить" Grid.Row="5" Click="SaveButton_Click" ></Button>
+        <Button x:Name="ExitButton" Height="24" Width="150" Content="Назад" Grid.Row="5" Grid.Column="1" Click="ExitButton_Click" Background="#FF04A0FF"></Button>
+        <Button x:Name="SaveButton"  Height="24" Width="150" Content="Сохранить" Grid.Row="5" Click="SaveButton_Click" Background="#FF04A0FF"></Button>
         
     </Grid>
 </Window>
