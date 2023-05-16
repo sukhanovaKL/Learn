@@ -175,7 +175,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="демо задание 4\erd_Suhanova.pdf" />
+    <None Include="демо задание 4\erd_zadanie4Suhanova.drawio.pdf" />
     <None Include="демо задание 4\импорт.xlsx" />
   </ItemGroup>
   <ItemGroup>
@@ -216,7 +216,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="демо задание 4\erd_Suhanova.png" />
+    <Resource Include="демо задание 4\erd_zadanie4Suhanova.drawio.png" />
     <Content Include="демо задание 4\Learn.sql" />
     <Resource Include="демо задание 4\school_logo.ico" />
     <Resource Include="демо задание 4\school_logo.png" />
