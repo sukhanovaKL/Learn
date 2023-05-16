@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Learn"
         mc:Ignorable="d"
-        Title="OtherPhotosWindow" Height="400" Width="600"
+        Title="Другие фотографии" Height="400" Width="600"
         Icon="Photos/school_logo.ico">
     <Grid Background="#FFE7FABF">
         <Grid.RowDefinitions>
@@ -27,7 +27,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="1" BorderBrush="Black">
-                        <Grid  Width="750" Height="150">
+                        <Grid  Width="200" Height="200">
                             <Image Height="200" Width="200" Source="{Binding OtherPhotoFromResources}" Grid.RowSpan="4"/>
                         </Grid>
                     </Border>
